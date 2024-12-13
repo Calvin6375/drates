@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.archivo-black-regular {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.pt-serif-bold {
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("./images/image-18.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  padding: 20px;
+  font-family: "Inter-Regular", Helvetica, sans-serif;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 5px;
+}
+
+.regulation-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  margin: 50px;
+  text-align: center;
+  width: 80%;
+}
+
+.exchange-rate-container {
+  text-align: center;
+  margin-top: -40px;
+  margin-bottom: 20px;
+  background-color: #45ae4d;
+  padding: 1px;
+  border-radius: 5px;
+  width: 80%;
+  color: white;
+  box-sizing: border-box;
+}
+
+.exchange-rate-title {
+  font-family: 'Archivo Black', serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.exchange-rate-date {
+  font-family: 'Archivo Black', serif;
+  font-size: 20px;
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+.header-left {
+  flex: 1;
+  text-align: center;
+  margin-left: 3.85in;
+  font-family: "PT Serif", serif;
+}
+
+.header-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1in;
+  font-family: "PT Serif", serif;
+}
+
+.header-text {
+  font-size: 20px;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+}
+
+.currency-list {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.currency-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  margin-bottom: -30px;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  transform: translateY(-0.5cm);
+}
+
+.currency-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 100px;
+  background-color: #45ae4d;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.currency-label-container {
+  margin-right: 5px;
+  background-color: #45ae4d;
+  padding: 8px;
+  border-radius: 5px;
+  width: 100px; /* Set a uniform width for the container */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.currency-action-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; /* Ensure column direction to stack elements vertically */
+  margin: 2px 0; /* Reduce the top and bottom margin */
+  padding: 5px;
+}
+
+.currency-action {
+  width: 30%;
+  text-align: center;
+  background-color: #45ae4d;
+  color: #ffffff;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 7px 0; /* Reduced margin */
+  font-size: 20px;
+}
+
+.currency-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.arrow-icon {
+  margin: 0 10px;
+  width: 50px;
+  height: 20px;
+}
