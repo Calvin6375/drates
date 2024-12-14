@@ -26,18 +26,43 @@ const FigmaDesign = () => {
   }, []);
 
   const updateRates = (data) => {
-    // Map the fetched data to the required format
-    const updatedCurrencyData = data.map(currency => {
-      return {
-        label: currency.Currency,
-        icon: getCurrencyIcon(currency.Currency),
-        buying: currency.BUY,
-        selling: currency.SELL
-      };
-    });
+    // Map the fetched data to the required format and filter out unwanted currencies
+    const updatedCurrencyData = data
+      .filter(currency => [
+        "USD-KES",
+        "EUR-KES",
+        "USD-UGX",
+        "USD-TZS",
+        "USD-NGN",
+        "GBP-KES",
+        "USD-JPY",
+        "USD-CNY",
+        "CNY-KES"
+      ].includes(currency.Currency))
+      .map(currency => {
+        return {
+          label: currency.Currency,
+          icon: getCurrencyIcon(currency.Currency),
+          buying: currency.BUY,
+          selling: currency.SELL
+        };
+      });
+
+    // Sort the currencies in the specified order
+    const sortedCurrencyData = [
+      "USD-KES",
+      "EUR-KES",
+      "USD-UGX",
+      "USD-TZS",
+      "USD-NGN",
+      "GBP-KES",
+      "USD-JPY",
+      "USD-CNY",
+      "CNY-KES"
+    ].map(code => updatedCurrencyData.find(currency => currency.label === code));
 
     // Update state with the new data
-    setCurrencyData(updatedCurrencyData);
+    setCurrencyData(sortedCurrencyData);
   };
 
   const getCurrencyIcon = (currencyCode) => {
@@ -48,8 +73,8 @@ const FigmaDesign = () => {
       case "USD-UGX": return image4;
       case "USD-TZS": return image19;
       case "USD-NGN": return image;
-      case "USD-JPY": return image10;
       case "GBP-KES": return image12;
+      case "USD-JPY": return image10;
       case "USD-CNY": return image7;
       case "CNY-KES": return image13;
       default: return image9; // Default icon if not matched
