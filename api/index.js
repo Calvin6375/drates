@@ -74,5 +74,11 @@ app.get('/api', async (req, res) => {
   }
 });
 
+// Set up the server to listen on the correct port
+const port = process.env.PORT || 3001;  // If running locally, use 3001 as the default
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+
 // Export the app for Vercel
 module.exports = app;
