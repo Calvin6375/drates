@@ -43,7 +43,8 @@ const FigmaDesign = () => {
 
   // Fetch data on component mount
   useEffect(() => {
-    fetch('http://localhost:3001/')
+    // Replace this URL with your Vercel backend URL
+    fetch('https://drates-4nszz8p78-calvins-projects-25d4b093.vercel.app/api') 
       .then(response => response.json())
       .then(data => updateRates(data))  // Use the updatedRates function here
       .catch(error => {
