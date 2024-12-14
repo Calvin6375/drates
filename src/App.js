@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./style.css";
 import logo from "./images/logo.png"; // Add your logo image here
 import image9 from "./images/image-9.png";
@@ -15,17 +15,8 @@ import arrow from "./images/arrow-1.png"; // Add your arrow image here
 const FigmaDesign = () => {
   const [currencyData, setCurrencyData] = useState([]);
 
-  useEffect(() => {
-    // Fetch the data from the backend
-    fetch('http://localhost:3001/')
-      .then(response => response.json())
-      .then(data => {
-        updateRates(data);
-      })
-      .catch(error => console.error('Error fetching rates:', error));
-  }, []);
-
-  const updateRates = (data) => {
+  // Move the updateRates function outside of useEffect
+  const updateRates = useCallback((data) => {
     // Map the fetched data to the required format and filter out unwanted currencies
     const updatedCurrencyData = data
       .filter(currency => [
@@ -63,7 +54,17 @@ const FigmaDesign = () => {
 
     // Update state with the new data
     setCurrencyData(sortedCurrencyData);
-  };
+  }, []);
+
+  useEffect(() => {
+    // Fetch the data from the backend
+    fetch('http://localhost:3001/')
+      .then(response => response.json())
+      .then(data => {
+        updateRates(data); // Use the updatedRates function here
+      })
+      .catch(error => console.error('Error fetching rates:', error));
+  }, [updateRates]); // Add updateRates to the dependency array
 
   const getCurrencyIcon = (currencyCode) => {
     // Return the appropriate image for the currency
