@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
+const port = process.env.PORT || 3001;
 
 app.use(cors());
 
@@ -30,9 +31,9 @@ const auth = new google.auth.GoogleAuth({
 const sheets = google.sheets({ version: 'v4', auth });
 
 // Route to fetch and transform data from Google Sheets
-app.get('/api', async (req, res) => {
+app.get('/', async (req, res) => {
   const range = 'A3:C15'; // Adjust the range if necessary
-
+  
   if (!spreadsheetId) {
     console.error('No spreadsheet ID found in environment variables.');
     res.status(500).send('Spreadsheet ID is missing.');
@@ -74,11 +75,6 @@ app.get('/api', async (req, res) => {
   }
 });
 
-// Set up the server to listen on the correct port
-const port = process.env.PORT || 3001;  // If running locally, use 3001 as the default
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
-
-// Export the app for Vercel
-module.exports = app;
