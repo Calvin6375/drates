@@ -6,8 +6,8 @@
       "use": "@vercel/node"
     },
     {
-      "src": "src/**/*",
-      "use": "@vercel/static-build",
+      "src": "package.json",
+      "use": "@vercel/react",
       "config": {
         "distDir": "build"
       }
