@@ -44,7 +44,7 @@ const FigmaDesign = () => {
   // Fetch data on component mount
   useEffect(() => {
     // Use the correct URL for the backend
-    fetch('http://localhost:3001/')
+    fetch('https://my-backend-ij4d.onrender.com/')
       .then(response => response.json())
       .then(data => updateRates(data))  // Use the updateRates function here
       .catch(error => {
