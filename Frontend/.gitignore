@@ -1,7 +1,6 @@
 # Ignore node_modules in both frontend and backend
 Frontend/node_modules/
 
-
 # Ignore environment configuration files
 Frontend/.env
 
@@ -12,3 +11,6 @@ Thumbs.db
 # Ignore logs
 *.log
 .env
+
+# Keep build folder in Git (ensure this folder is not ignored)
+!Frontend/build/
