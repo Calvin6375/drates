@@ -7,5 +7,4 @@ node_modules/
 # Ignore logs
 *.log
 
-# Do not ignore build folder
-!build/
+
